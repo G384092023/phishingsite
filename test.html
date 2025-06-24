@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Takudai Bb</title>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centers content horizontally */
+      justify-content: center; /* Centers content vertically if there's enough space */
+      min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+      margin: 0;
+      background-color: #f8f8f8;
+      text-align: center; /* Ensures text within blocks is also centered */
+      font-family: sans-serif;
+    }
+
+    /* Container for the logo and form to control their combined width background-color: #fff;*/
+    .logo-form-container {
+      width: 100%;
+      max-width: 350px;
+      padding: 20px;
+      
+      box-sizing: border-box;
+    }
+
+    .logo img {
+      width: 100%;
+      height: auto;
+      max-width: 350px;
+      display: block;
+      margin: 0 auto 30px auto;
+    }
+
+    /* Form specific styles */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 25px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .input-group label {
+      position: absolute;
+      left: 0;
+      top: 10px; /* Initial vertical position for label */
+      color: #000; /* Changed: Label font color black by default */
+      font-size: 1em;
+      pointer-events: none;
+      transition: all 0.2s ease-out;
+    }
+
+    .input-group input[type="text"],
+    .input-group input[type="password"] {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #333;
+      background-color: transparent;
+      padding: 10px 0 5px 0; /* Space for label to move above */
+      outline: none;
+      font-size: 1em;
+      color: #000; /* Input text color remains black */
+      box-sizing: border-box;
+    }
+
+    .input-group input[type="text"]:focus,
+    .input-group input[type="password"]:focus {
+      border-bottom-color: #e54800; /* Highlight on focus */
+    }
+
+    /* Floating label effect */
+    /* When input is focused OR has content (:not(:placeholder-shown)) */
+    .input-group input[type="text"]:focus + label,
+    .input-group input[type="password"]:focus + label,
+    .input-group input[type="text"]:not(:placeholder-shown) + label,
+    .input-group input[type="password"]:not(:placeholder-shown) + label {
+      top: -10px; /* Move label upwards */
+      font-size: 0.8em; /* Make it smaller */
+      color: #e54800; /* Change label color when active */
+    }
+
+    /* Hide placeholder when label floats up */
+    .input-group input[type="text"]:focus::placeholder,
+    .input-group input[type="password"]:focus::placeholder {
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    /* Buttons */
+    #orange, #blue {
+      width: 100%;
+      max-width: 300px;
+      box-sizing: border-box;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 0; /* No rounded corners */
+      cursor: pointer;
+      
+      margin-top: 10px;
+      font-size: 1.1em;
+    }
+
+    #orange {
+      
+      background-color: #e54800;
+      color: #fff;
+      box-shadow: 0 0 0 2px #e54800 inset;
+    }
+    #orange:hover, #orange:focus {
+      background-color: #f9f4f0;
+      box-shadow: 0 0 0 2px #e54800 inset;
+      color: #e54800;
+    }
+
+    #blue {
+      font-weight: bold;
+      background-color: #1674b9;
+      color: #fff;
+      box-shadow: 0 0 0 2px #1674b9 inset;
+      margin-bottom: 20px;
+    }
+    #blue:hover, #blue:focus {
+      background-color: #e6f2f9;
+      box-shadow: 0 0 0 2px #1674b9 inset;
+      color: #1674b9;
+    }
+
+    /* Announcement Section Styling */
+    .login-page-announcements {
+      width: 100%;
+      max-width: 500px;
+      margin-top: 30px;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .login-page-announcements h3 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .login-page-announcements ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .login-page-announcements ul li {
+      background-color: #f9f4f0;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 15px;
+      text-align: left;
+      color: #333;
+      line-height: 1.5;
+    }
+    .announcementDate {
+      display: block;
+      font-size: 0.9em;
+      color: #666;
+      margin-top: 5px;
+    }
+    .vtbegenerated p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .footer{
+      font-size: small;
+      color: grey;
+      opacity: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-form-container">
+    <div class="logo">
+      <img src="takudai logo.png" alt="Takudai Logo">
+    </div>
+    <form>
+      <div class="input-group">
+        <input type="text" id="username" name="username" placeholder=" ">
+        <label for="username">ユーザ名</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder=" ">
+        <label for="password">パスワード</label>
+      </div>
+
+      <input id="orange" type="submit" value="サインイン">
+      <input id="blue" type="submit" value="サインインできない方は">
+    </form>
+  </div>
+
+  <div class="login-page-announcements">
+    <div id="loginAnnouncements">
+      <h3>システムの連絡事項</h3>
+      <ul>
+        <li>
+          <strong>■お問い合わせ対応について</strong>
+          <em class="announcementDate">(2025年4月15日)</em>
+          <br /><div class="vtbegenerated"><p>・対応日：月～金(休日を除く)<br>・対応時間：9:00-11:30, 12:30-17:00</p><p>※メールでのお問い合わせにつきましても、<br>上記対応時間内に順次返信いたします。ご理解ご協力をお願いいたします。</p><p>■教員用お問い合わせメールアドレス</p><p>bbstaff@ner.takushoku-u.ac.jp</p><p>■学生用お問い合わせメールアドレス</p><p>e-help@ner.takushoku-u.ac.jp</p><p>※お問い合わせの際には「学籍」「学生番号」「氏名」「科目名」を明記して頂きますようお願いいたします。</p></div>
+        </li>
+        <li>
+          <strong>▇Blackboard　対応ブラウザについて</strong>
+          <em class="announcementDate">(2025年3月21日)</em>
+          <br /><div class="vtbegenerated"><p>・対応推奨　Firefox, Chrome, Safari, Edge　最新バージョン</p><p>※上記以外のブラウザ（IE 等）はサポートしておりません。<br>　推奨ブラウザのインストール等で問題が発生しましたら<br>　サインイン画面のBbサポートページをご確認下さい。</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 1997-2025 Blackboard Inc. All Rights Reserved.</p>
+    
+    <a href="https://help.blackboard.com/ja-jp/Learn">ヘルプ   </a>
+    <a href="https://bb.takushoku-u.ac.jp/#">プライバシーと利用規約  </a>
+    <a href="https://help.blackboard.com/001_631en_US">アクセシビリティ</a>
+    
+  </div>
+</body>
+</html>
